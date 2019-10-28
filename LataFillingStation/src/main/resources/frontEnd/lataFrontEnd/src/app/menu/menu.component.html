@@ -1,0 +1,92 @@
+<link href="assets/css/sb-admin-2.min.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<!-- Sidebar -->
+ <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <div class="sidebar-brand-icon rotate-n-15">
+      <i class="fas fa-laugh-wink"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3">Admin Module</div>
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item active">
+    <a class="nav-link" href="index.html">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span></a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Admin Modules
+  </div>
+
+  <!-- Nav Item - Pages Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#"  *ngIf='isUserLoggedIn' routerLink="/role"> 
+      <span>Roles</span>
+    </a> 
+  </li>
+  <!-- <li class="nav-item">
+    <a class="nav-link collapsed" href="#"  routerLink="/role"> 
+      <span>Permissions</span>
+    </a> 
+  </li> -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#"  *ngIf='isUserLoggedIn' routerLink="/user"> 
+      <span>Users</span>
+    </a> 
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" *ngIf='isUserLoggedIn' routerLink="/product"> 
+      <span>Products</span>
+    </a> 
+  </li>
+ 
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Customers
+  </div>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#"  *ngIf='isUserLoggedIn' routerLink="/customer"> 
+      <span>Customer</span>
+    </a> 
+  </li>
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Expenses
+  </div>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" *ngIf='isUserLoggedIn' routerLink="/expense"> 
+      <span>Expense</span>
+    </a> 
+  </li> 
+
+   <!-- Heading -->
+   <div class="sidebar-heading">
+    Sales
+  </div>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" *ngIf='isUserLoggedIn' routerLink="/sales"> 
+      <span>Sales</span>
+    </a> 
+  </li> 
+</ul>
+<!-- End of Sidebar -->
+ 
