@@ -19,6 +19,9 @@ import { FooterComponent } from './footer/footer.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import {NgxPaginationModule} from 'ngx-pagination';  
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HttpClientModule } from '@angular/common/http';
+import { RolepageComponent } from './rolepage/rolepage.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,14 +38,17 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ErrorComponent,
     MenuComponent,
     FooterComponent,
-    TopBarComponent
+    TopBarComponent,
+    RolepageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
