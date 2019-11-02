@@ -25,6 +25,8 @@ export class UsersService {
   }
 
   addUser(user){
+    console.log("--->>"+this.baseUrl+'/save-user');
+    console.log("USER "+user.created_by+"  "+ user.createdAt+"  "+ user.modified_By+" "+ user.updatedAt+"  "+ user.firstName);
     return this.http.post(this.baseUrl+'/save-user',user);
   }
    

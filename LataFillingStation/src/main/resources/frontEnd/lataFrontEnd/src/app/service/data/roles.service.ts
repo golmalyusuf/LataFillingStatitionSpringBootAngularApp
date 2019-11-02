@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Role } from 'src/app/role/role.component';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,7 @@ export class RolesService {
   retriveAllRoles(page:number){
     return this.http.get<Role[]>(this.baseUrl+'/allroles?page='+page+'&size=2'); 
   }
-
-  addRole(role){
-    console.log(" productCategory service 111 ");
-    return this.http.post(this.baseUrl+'/save-role',role);
-  }
-
+ 
   deleteRole(id:number){ 
     console.log("Service Delete ROle");
     return this.http.delete(this.baseUrl+`/delete-role/${id}`)
@@ -34,7 +30,7 @@ export class RolesService {
     return this.http.put(this.baseUrl+`/edit-role/${id}`, role);
   }
 
-  retriveRoleById(id){
+  retriveRoleById(id):Observable<any>{
     return this.http.get<Role>(this.baseUrl+`/role/${id}`);
   }
 

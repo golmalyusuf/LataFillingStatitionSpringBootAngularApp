@@ -11,11 +11,11 @@ export class User {
     public emailId,
     public address,
     public mobileNumber, 
-    public created_by,
+    public created_By,
     public createdAt: Date,
     public modified_By,
     public updatedAt: Date,
-    public role: Role
+    public role
   ) {
 
   }

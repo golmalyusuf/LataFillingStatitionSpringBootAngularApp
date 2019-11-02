@@ -1,6 +1,7 @@
 package org.gl.com.controller;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +45,8 @@ public class UserController {
 	@PostMapping("/save-user")
 	@Transactional
 	public ResponseEntity<Void> createUser(@Valid @RequestBody User user){
-		Role role = user.getRole();
+		user.setCreatedAt(new Date());
+		user.setUpdatedAt(new Date());
 		User userCreated = userRepository.save(user);
 		URI uri=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userCreated.getId()).toUri();
 		return ResponseEntity.created(uri).build();

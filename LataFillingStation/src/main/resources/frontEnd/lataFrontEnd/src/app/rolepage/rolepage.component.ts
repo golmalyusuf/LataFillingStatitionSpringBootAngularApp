@@ -21,8 +21,8 @@ export class RolepageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.params['id'];
-    this.role = new Role(this.id, '', '',  '',new Date(),  'yusuf1',new Date());
+    this.id = this.activatedRoute.snapshot.params['id']; 
+    this.role = new Role(this.id, '', '',  sessionStorage.getItem('authUser'),new Date(),  sessionStorage.getItem('authUser'),new Date());
      
     if (this.id != -1) {
       this.rolesService.retriveRoleById(this.id).subscribe(

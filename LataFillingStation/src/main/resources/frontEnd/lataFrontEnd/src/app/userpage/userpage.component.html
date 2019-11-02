@@ -21,6 +21,25 @@
 
   <!-- Custom styles for this template-->
   <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <!-- Page level plugins -->
+  <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="assets/js/demo/datatables-demo.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="assets/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="assets/js/demo/datatables-demo.js"></script>
+
   <script>
     $(document).ready(function () {
       $('#example').DataTable();
@@ -44,80 +63,75 @@
         <!-- 00000000000000000000000000000000000 -->
         <div class="container-fluid">
           <div class="card shadow mb-4">
-            <div class="card-header py-1
-            " style="background-color:#8099e5;">
+            <div class="card-header py-1" style="background-color:#8099e5;">
               <h5 class="m-0 font-weight-bold" style="display:inline-block; float:left; color:white;">New Role</h5>
-
             </div>
             <div class="card-body">
-                <div class="container">
-                    <fieldset class="form-group">
-                      <label>First Name</label>
-                      <input type="text" [(ngModel)]="user.firstName" class="form-control" name="firstName" required="required" >
-                    </fieldset>
-                    
-                    <fieldset class="form-group">
-                      <label>Last Name</label> 
-                      <input type="text" [(ngModel)]="user.lastName"  class="form-control" name="lastName" required="required">
-                    </fieldset>
-
-                    <fieldset class="form-group">
-                        <label>Address</label> 
-                        <input type="text" [(ngModel)]="user.address"  class="form-control" name="address" required="required">
-                    </fieldset>
-
-                    <fieldset class="form-group">
-                        <label>Mobile Number</label> 
-                        <input type="text" [(ngModel)]="user.mobileNumber"  class="form-control" name="mobileNumber" required="required">
-                    </fieldset>
-
-                    <fieldset class="form-group">
-                        <label>E-mail Address</label> 
-                        <input type="text" [(ngModel)]="user.emailId"  class="form-control" name="emailId" required="required">
-                    </fieldset> 
-                    
-                    <fieldset class="form-group">
-                        <label>Role</label>
-                           <select class="custom-select" [(ngModel)]="role"> 
-                              <option *ngFor="let c of roleList" [ngValue]="c.id">{{c.roleName}}</option>
-                           </select>
-                      </fieldset>
-
-                    <input type="hidden" [(ngModel)]="user.created_by" class="form-control" name="createdBy" required="required">
-                    <input type="hidden" [(ngModel)]="user.createdAt" class="form-control" name="createdDate" required="required">
-                    <input type="hidden" [(ngModel)]="user.updatedAt" class="form-control" name="modifiedDate" required="required">
-                    <input type="hidden" [(ngModel)]="user.modified_By" class="form-control" name="updatedby" required="required">
-                    <button class="btn btn-success" (click)="saveUser()">Save</button>
+              <div class="container">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
                   </div>
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" formControlName="address" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                      <div *ngIf="f.address.errors.required">Address is required</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="text" formControlName="mobileNumber" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" />
+                    <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+                      <div *ngIf="f.mobileNumber.errors.required">mobileNumber is required</div>
+                      <div *ngIf="f.mobileNumber.errors.mobileNumber">MobileNumber must be a valid.</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Role</label> 
+                      <select class="custom-select" formControlName="role"> 
+                        <option *ngFor="let c of roleList" [ngValue]="c.id">{{c.roleName}}</option>
+                      </select>
+                    <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                      <div *ngIf="f.role.errors.required">Role is required</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
+          <!-- 000000000000000000000000000000000 -->
         </div>
-        <!-- 000000000000000000000000000000000 -->
       </div>
     </div>
   </div>
 </body>
-
-
-
-
-<!-- Page level plugins -->
-<script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="assets/js/demo/datatables-demo.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="assets/js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="assets/js/demo/datatables-demo.js"></script>
 
 </html>
