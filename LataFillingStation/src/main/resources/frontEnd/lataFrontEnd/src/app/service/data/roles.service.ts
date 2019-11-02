@@ -19,7 +19,7 @@ export class RolesService {
     return this.http.get<Role[]>(this.baseUrl+'/allroles?page='+page+'&size=2'); 
   }
 
-  addStock(role){
+  addRole(role){
     console.log(" productCategory service 111 ");
     return this.http.post(this.baseUrl+'/save-role',role);
   }

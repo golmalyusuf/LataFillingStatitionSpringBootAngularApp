@@ -50,7 +50,7 @@ export class RoleComponent implements OnInit {
         //this.collection.data = response; 
         this.roles = response;
         this.config = {
-          itemsPerPage: 2,
+          itemsPerPage: 10,
           currentPage: 1,
           totalItems: this.roles.length
         };

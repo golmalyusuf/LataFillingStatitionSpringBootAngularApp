@@ -49,9 +49,9 @@ public class User extends AuditModel {
     @JoinColumn(name = "role_id")
     private Role userRole;
 
-	@ManyToOne
-    @JoinColumn(name = "permission_id")
-    private Permission userPermission;
+//	@ManyToOne
+//    @JoinColumn(name = "permission_id")
+//    private Permission userPermission;
 
 	@OneToMany(cascade = CascadeType.ALL,  
 	        mappedBy = "user", orphanRemoval = true)
@@ -120,29 +120,13 @@ public class User extends AuditModel {
 	public void setRole(Role role) {
 		this.userRole = role;
 	}
-
-	public Permission getPermission() {
-		return userPermission;
-	}
-
-	public void setPermission(Permission permission) {
-		this.userPermission = permission;
-	}
-
+ 
 	public Role getUserRole() {
 		return userRole;
 	}
 
 	public void setUserRole(Role userRole) {
 		this.userRole = userRole;
-	}
-
-	public Permission getUserPermission() {
-		return userPermission;
-	}
-
-	public void setUserPermission(Permission userPermission) {
-		this.userPermission = userPermission;
 	}
 
 	public List<SaleTransaction> getSaleTransaction() {
@@ -167,14 +151,14 @@ public class User extends AuditModel {
 
 	public void setLoginByUser(List<Login> loginByUser) {
 		this.loginByUser = loginByUser;
-	}
+	} 
 
 	public User() {
 		super();
 	}
 
 	public User(@NotNull String firstName, String lastName, String emailId, String address, String mobileNumber,
-			Role userRole, Permission userPermission, List<SaleTransaction> saleTransaction,
+			Role userRole, List<SaleTransaction> saleTransaction,
 			List<Expense> expenseByUser, List<Login> loginByUser) {
 		super();
 		this.firstName = firstName;
@@ -183,7 +167,7 @@ public class User extends AuditModel {
 		this.address = address;
 		this.mobileNumber = mobileNumber;
 		this.userRole = userRole;
-		this.userPermission = userPermission;
+		 
 		this.saleTransaction = saleTransaction;
 		this.expenseByUser = expenseByUser;
 		this.loginByUser = loginByUser;

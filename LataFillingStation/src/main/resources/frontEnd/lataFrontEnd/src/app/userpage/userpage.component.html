@@ -52,19 +52,42 @@
             <div class="card-body">
                 <div class="container">
                     <fieldset class="form-group">
-                      <label>Role Name</label>
-                      <input type="text" [(ngModel)]="role.roleName" class="form-control" name="roleName" required="required">
+                      <label>First Name</label>
+                      <input type="text" [(ngModel)]="user.firstName" class="form-control" name="firstName" required="required" >
                     </fieldset>
+                    
                     <fieldset class="form-group">
-                      <label>Role Description</label> 
-                      <input type="text" [(ngModel)]="role.description"  class="form-control" name="description" required="required">
+                      <label>Last Name</label> 
+                      <input type="text" [(ngModel)]="user.lastName"  class="form-control" name="lastName" required="required">
                     </fieldset>
-                     
-                    <input type="hidden" [(ngModel)]="role.created_By" class="form-control" name="createdBy" required="required">
-                    <input type="hidden" [(ngModel)]="role.createdAt" class="form-control" name="createdDate" required="required">
-                    <input type="hidden" [(ngModel)]="role.updatedAt" class="form-control" name="modifiedDate" required="required">
-                    <input type="hidden" [(ngModel)]="role.modified_By" class="form-control" name="updatedby" required="required">
-                    <button class="btn btn-success" (click)="saveRole()">Save</button>
+
+                    <fieldset class="form-group">
+                        <label>Address</label> 
+                        <input type="text" [(ngModel)]="user.address"  class="form-control" name="address" required="required">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Mobile Number</label> 
+                        <input type="text" [(ngModel)]="user.mobileNumber"  class="form-control" name="mobileNumber" required="required">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>E-mail Address</label> 
+                        <input type="text" [(ngModel)]="user.emailId"  class="form-control" name="emailId" required="required">
+                    </fieldset> 
+                    
+                    <fieldset class="form-group">
+                        <label>Role</label>
+                           <select class="custom-select" [(ngModel)]="role"> 
+                              <option *ngFor="let c of roleList" [ngValue]="c.id">{{c.roleName}}</option>
+                           </select>
+                      </fieldset>
+
+                    <input type="hidden" [(ngModel)]="user.created_by" class="form-control" name="createdBy" required="required">
+                    <input type="hidden" [(ngModel)]="user.createdAt" class="form-control" name="createdDate" required="required">
+                    <input type="hidden" [(ngModel)]="user.updatedAt" class="form-control" name="modifiedDate" required="required">
+                    <input type="hidden" [(ngModel)]="user.modified_By" class="form-control" name="updatedby" required="required">
+                    <button class="btn btn-success" (click)="saveUser()">Save</button>
                   </div>
             </div>
           </div>

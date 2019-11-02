@@ -22,6 +22,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 import { RolepageComponent } from './rolepage/rolepage.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserpageComponent } from './userpage/userpage.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuComponent,
     FooterComponent,
     TopBarComponent,
-    RolepageComponent
+    RolepageComponent,
+    UserpageComponent
   ],
   imports: [
     BrowserModule,
