@@ -7,9 +7,9 @@ export class Role {
     public id: number,
     public roleName,
     public description,
-    public created_By,
+    public createdBy,
     public createdAt: Date,
-    public modified_By,
+    public updatedBy,
     public updatedAt: Date
   ) {
 
@@ -94,7 +94,6 @@ export class RoleComponent implements OnInit {
       }
     );
   }
-
 
   setPage(i, event: any) {
     event.preventDefault();

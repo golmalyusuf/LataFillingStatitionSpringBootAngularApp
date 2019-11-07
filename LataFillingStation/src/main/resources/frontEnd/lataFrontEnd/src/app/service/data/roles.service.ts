@@ -22,7 +22,7 @@ export class RolesService {
  
   deleteRole(id:number){ 
     console.log("Service Delete ROle");
-    return this.http.delete(this.baseUrl+`/delete-role/${id}`)
+    return this.http.delete(this.baseUrl+`/delete-role/${id}`);
   }
 
   editRole(id, role){ 
@@ -34,7 +34,8 @@ export class RolesService {
     return this.http.get<Role>(this.baseUrl+`/role/${id}`);
   }
 
-  addRole(role){
+  addRole(role: Role){
+    console.log("Role "+role.roleName+" des "+role.description+" createdBy "+role.createdBy+" Createdat "+role.createdAt+" updated by "+role.updatedBy+"  Updated At "+role.updatedBy);
     return this.http.post(this.baseUrl+'/save-role',role);
   }
 }

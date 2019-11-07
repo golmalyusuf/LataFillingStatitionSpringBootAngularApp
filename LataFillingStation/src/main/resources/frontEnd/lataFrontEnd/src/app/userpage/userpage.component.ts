@@ -5,7 +5,7 @@ import { Role } from '../role/role.component';
 import { User } from '../user/user.component'; 
 import { UsersService } from '../service/users.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+ 
 
 
 @Component({
@@ -100,5 +100,7 @@ export class UserpageComponent implements OnInit {
               this.router.navigate(['user'])
             }
          );
-    }
+  }
+
+
 }

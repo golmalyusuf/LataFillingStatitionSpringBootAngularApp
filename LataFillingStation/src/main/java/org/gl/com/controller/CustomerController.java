@@ -70,7 +70,7 @@ public class CustomerController {
 			customerLocal.setEmailId(customer.getEmailId());
 			customerLocal.setAddress(customer.getAddress());
 			customerLocal.setMobileNumber(customer.getMobileNumber());
-			customerLocal.setModified_By(customer.getModified_By()); //NEED TO SET CURRENT TIME USER
+			customerLocal.setUpdatedBy(customer.getUpdatedBy()); //NEED TO SET CURRENT TIME USER
 			customerLocal.setUpdatedAt(customer.getUpdatedAt()); //NEED TO SET CURRENT TIME
 			return customerRepository.save(customer);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + id + " not found"));

@@ -54,7 +54,12 @@ public class RoleController {
 	
 	@PostMapping("/save-role")
 	public ResponseEntity<Void> createRole(@RequestBody Role role){
-		System.out.println("Save Role "+role.getId());
+		System.out.println("Save Role "+role.getRoleName());
+		System.out.println("Save Role "+role.getDescription());
+		System.out.println("Save Role "+role.getCreatedBy());
+		System.out.println("Save Role "+role.getCreatedAt());
+		System.out.println("Save Role "+role.getUpdatedBy());
+		System.out.println("Save Role "+role.getUpdatedAt());
 		Role roleCreated = roleRepository.save(role);
 		URI uri=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(roleCreated.getId()).toUri();
 		return ResponseEntity.created(uri).build();
@@ -65,7 +70,7 @@ public class RoleController {
 		return roleRepository.findById(id).map(roleLocal -> {
 			roleLocal.setRoleName(role.getRoleName());
 			roleLocal.setDescription(role.getDescription());
-			roleLocal.setModified_By(role.getModified_By()); //NEED TO SET CURRENT USER
+			roleLocal.setUpdatedBy(role.getUpdatedBy()); //NEED TO SET CURRENT USER
 			roleLocal.setUpdatedAt(role.getUpdatedAt());  //NEED TO SET CURRENT TIME
 			return roleRepository.save(roleLocal);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + id + " not found"));

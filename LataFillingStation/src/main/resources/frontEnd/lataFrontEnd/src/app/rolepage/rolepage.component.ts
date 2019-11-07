@@ -32,10 +32,10 @@ export class RolepageComponent implements OnInit {
           console.log(response);
         }
       );
-   }
+    }
   }
   saveRole(){ 
-      this.role.modified_By = sessionStorage.getItem('authUser');
+      this.role.updatedBy = sessionStorage.getItem('authUser');
       this.role.updatedAt = new Date(); 
        
       if (this.id != -1) {
@@ -48,8 +48,10 @@ export class RolepageComponent implements OnInit {
         );
   
       } else {
-        this.role.created_By = sessionStorage.getItem('authUser');
+        this.role.createdBy = sessionStorage.getItem('authUser');
         this.role.createdAt = new Date();
+        this.role.updatedBy = sessionStorage.getItem('authUser');
+        this.role.updatedAt = new Date();
         
         this.rolesService.addRole(this.role).subscribe(
            response => {

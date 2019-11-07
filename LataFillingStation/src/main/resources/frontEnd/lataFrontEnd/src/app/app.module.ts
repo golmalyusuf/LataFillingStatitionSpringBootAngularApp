@@ -22,7 +22,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 import { RolepageComponent } from './rolepage/rolepage.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserpageComponent } from './userpage/userpage.component'; 
+import { UserpageComponent } from './userpage/userpage.component';
+import { ProductpageComponent } from './productpage/productpage.component'; 
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserpageComponent } from './userpage/userpage.component';
     FooterComponent,
     TopBarComponent,
     RolepageComponent,
-    UserpageComponent
+    UserpageComponent,
+    ProductpageComponent
   ],
   imports: [
     BrowserModule,

@@ -118,14 +118,14 @@
                       <td>{{user.createdAt | date}}</td>
                       <td>{{user.modified_By}}</td>
                       <td>{{user.updatedAt | date}}</td>
-                      <!-- <td>
-                        <button (click)="editRole(role.id)" class="btn btn-primary btn-sm"><i
+                      <td>
+                        <button (click)="editUser(user.id)" class="btn btn-primary btn-sm"><i
                             class="glyphicon glyphicon-pencil" style="-ms-transform: rotate(125deg); /* IE 9 */
                             -webkit-transform: rotate(125deg); /* Safari 3-8 */
                             transform: rotate(125deg);"></i>Edit</button> 
                       </td>
-                      <td><button (click)="deleteRole(role.id)" class="btn btn-danger btn-sm"><i
-                            class="fas fa-trash"></i></button></td> -->
+                      <td><button (click)="deleteUser(user.id)" class="btn btn-danger btn-sm"><i
+                            class="fas fa-trash"></i></button></td>  
                     </tr>
                   </tbody>
                 </table>

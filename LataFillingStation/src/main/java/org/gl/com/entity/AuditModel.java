@@ -16,53 +16,53 @@ import java.util.Date;
         allowGetters = true
 )
 
-public abstract class AuditModel implements Serializable {
+public class AuditModel implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
     private Date createdAt;
 
     @Column(name = "created_by", nullable = false, updatable = false)
-    private String Created_By;
+    private String createdBy;
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = false)
     @LastModifiedDate
-    private Date updatedAt;
+    private Date updatedAt; 
 
-    @Column(name = "modified_by", nullable = false)
-    private String Modified_By;
+    @Column(name = "updated_by", nullable = false)
+    private String updatedBy;
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
     
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-	public String getCreated_By() {
-		return Created_By;
-	}
-
-	public String getModified_By() {
-		return Modified_By;
-	}
-
-	public void setCreated_By(String created_By) {
-		Created_By = created_By;
-	}
-
-	public void setModified_By(String modified_By) {
-		Modified_By = modified_By;
-	}
-     
 }

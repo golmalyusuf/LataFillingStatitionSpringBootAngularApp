@@ -1,6 +1,7 @@
 package org.gl.com.controller;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -55,10 +57,16 @@ public class ProductController {
 	public Optional<Product> getProduct(@PathVariable Integer id){
 		return productRepository.findById(id);
 	} 
-	
-	@PostMapping("/save-product")
-	@Transactional
-	public ResponseEntity<Void> createProduct(@Valid @RequestBody Product product){
+	 
+	//@PostMapping("/save-product")
+	@RequestMapping(value = "/save-product", method = RequestMethod.POST,consumes ="application/json",  produces="application/json")
+	//@Transactional
+	@ResponseBody
+	public ResponseEntity<Void> createProduct(@RequestBody Product product){ 
+//		product.setCreated_By("Yusuf");
+//		product.setModified_By("Yusuf");
+//		product.setCreatedAt(new Date());
+//		product.setUpdatedAt(new Date());
 		Product productCreated = productRepository.save(product);
 		URI uri=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(productCreated.getId()).toUri();
 		return ResponseEntity.created(uri).build();

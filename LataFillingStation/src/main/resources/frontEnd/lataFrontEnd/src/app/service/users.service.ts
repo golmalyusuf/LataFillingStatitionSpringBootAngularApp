@@ -30,4 +30,8 @@ export class UsersService {
     return this.http.post(this.baseUrl+'/save-user',user);
   }
    
+  deleteUser(id){
+    console.log("Service Delete ROle");
+    return this.http.delete(this.baseUrl+`/delete-user/${id}`);
+  }
 }

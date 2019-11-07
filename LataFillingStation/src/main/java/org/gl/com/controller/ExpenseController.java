@@ -88,7 +88,7 @@ public class ExpenseController {
 
 	@PostMapping("/save-expenses")
 	public ResponseEntity<Void> createExpense(@RequestBody Expense expense){
-		expense.setModified_By("yusuf");
+		expense.setUpdatedBy("yusuf");
 		Expense expenseCreated =  expenseRepository.save(expense);
 		URI uri=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(expenseCreated.getId()).toUri();
 		return ResponseEntity.created(uri).build();
@@ -96,7 +96,7 @@ public class ExpenseController {
 	
 	@PutMapping("/edit-expenses/{id}")
 	public ResponseEntity<Expense> editExpense(@PathVariable long id, @RequestBody Expense expense){
-		System.out.println("expnese des"+expense.getModified_By());
+		System.out.println("expnese des"+expense.getUpdatedBy());
 		Expense expenseUpdated = expenseRepository.save(expense);
 		return new ResponseEntity<Expense>(expense, HttpStatus.OK);
 	}

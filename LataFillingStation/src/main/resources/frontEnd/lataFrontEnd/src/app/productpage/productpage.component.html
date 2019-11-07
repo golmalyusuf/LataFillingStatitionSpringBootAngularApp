@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+ 
   <title>SB Admin 2 - Dashboard</title>
 
   <!-- Custom fonts for this template-->
@@ -46,20 +46,36 @@
           <div class="card shadow mb-4">
             <div class="card-header py-1
             " style="background-color:#8099e5;">
-              <h5 class="m-0 font-weight-bold" style="display:inline-block; float:left; color:white;">New Role</h5>
+              <h5 class="m-0 font-weight-bold" style="display:inline-block; float:left; color:white;">New Product</h5>
 
             </div>
             <div class="card-body">
                 <div class="container">
                     <fieldset class="form-group">
-                      <label>Role Name</label>
-                      <input type="text" [(ngModel)]="role.roleName" class="form-control" name="roleName" required="required">
+                      <label>Product Name</label>
+                      <input type="text" [(ngModel)]="product.productName" class="form-control" name="productName" required="required">
                     </fieldset>
                     <fieldset class="form-group">
-                      <label>Role Description</label> 
-                      <input type="text" [(ngModel)]="role.description"  class="form-control" name="description" required="required">
-                    </fieldset> 
-                    <button class="btn btn-success" (click)="saveRole()">Save</button>
+                      <label>Description</label> 
+                      <input type="text" [(ngModel)]="product.productDescription"  class="form-control" name="productDescription" required="required">
+                    </fieldset>
+                     
+                    <fieldset class="form-group">
+                      <label>Product in Stock</label> 
+                      <input type="text" [(ngModel)]="product.productInStock"  class="form-control" name="productInStock" required="required">
+                    </fieldset>
+
+
+                    <fieldset class="form-group">
+                      <label>Whole Sale Price</label> 
+                      <input type="text" [(ngModel)]="product.productWholesalePrice"  class="form-control" name="productWholesalePrice" required="required">
+                    </fieldset>
+
+                    <input type="hidden" [(ngModel)]="product.Created_By" class="form-control" name="createdBy" required="required">
+                    <input type="hidden" [(ngModel)]="product.createdAt" class="form-control" name="createdDate" required="required">
+                    <input type="hidden" [(ngModel)]="product.updatedAt" class="form-control" name="modifiedDate" required="required">
+                    <input type="hidden" [(ngModel)]="product.Modified_By" class="form-control" name="updatedby" required="required">
+                    <button class="btn btn-success" (click)="saveProduct()">Save</button>
                   </div>
             </div>
           </div>

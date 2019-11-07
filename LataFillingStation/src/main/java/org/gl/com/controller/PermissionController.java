@@ -53,7 +53,7 @@ public class PermissionController {
 		return permissionRepository.findById(id).map(permissionLocal -> {
 			permissionLocal.setRoleName(permission.getRoleName());
 			permissionLocal.setDescription(permission.getDescription());
-			permissionLocal.setModified_By(permission.getModified_By()); //NEED TO SET CURRENT TIME USER
+			permissionLocal.setUpdatedBy(permission.getUpdatedBy()); //NEED TO SET CURRENT TIME USER
 			permissionLocal.setUpdatedAt(permission.getUpdatedAt()); //NEED TO SET CURRENT TIME
 			return permissionRepository.save(permissionLocal);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + id + " not found"));

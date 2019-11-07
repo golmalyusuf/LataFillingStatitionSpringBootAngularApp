@@ -61,7 +61,7 @@ public class UserController {
 			userLocal.setAddress(user.getAddress());
 			userLocal.setMobileNumber(user.getMobileNumber());
 			userLocal.setRole(user.getRole());
-			userLocal.setModified_By(user.getModified_By()); //NEED TO SET CURRENT TIME USER
+			userLocal.setUpdatedBy(user.getUpdatedBy()); //NEED TO SET CURRENT TIME USER
 			userLocal.setUpdatedAt(user.getUpdatedAt()); //NEED TO SET CURRENT TIME
 			return userRepository.save(userLocal);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + id + " not found"));
@@ -75,4 +75,6 @@ public class UserController {
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException("UserId " + id + " not found"));
     }
+	
+	
 }

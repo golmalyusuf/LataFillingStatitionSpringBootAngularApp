@@ -62,4 +62,21 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
+  editUser(id){
+    this.router.navigate(['userpage', id]);
+  }
+
+  deleteUser(id){
+    console.log("DELETE User ");
+    this.usersService.deleteUser(id).subscribe(
+      response => {
+        console.log(response);
+        this.message = 'Deleted Successfully!';
+        this.getAllUsersAtOnce();
+      }, error =>{
+        this.message = "Item Couldn't be found!"
+      }
+    );
+  }
 }

@@ -53,7 +53,7 @@ public class CustomerPropertiesController {
 		return customerPropertyRepository.findById(id).map(customerPropertyLocal -> {
 			customerPropertyLocal.setPropertyType(customerProperty.getPropertyType());
 			customerPropertyLocal.setNumberplate(customerProperty.getNumberplate());
-			customerPropertyLocal.setModified_By(customerProperty.getModified_By()); //NEED TO SET CURRENT USER
+			customerPropertyLocal.setUpdatedBy(customerProperty.getUpdatedBy()); //NEED TO SET CURRENT USER
 			customerPropertyLocal.setUpdatedAt(customerProperty.getUpdatedAt());  //NEED TO SET CURRENT TIME
 			return customerPropertyRepository.save(customerPropertyLocal);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + id + " not found"));

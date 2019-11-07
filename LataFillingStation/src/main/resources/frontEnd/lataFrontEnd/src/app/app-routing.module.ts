@@ -12,6 +12,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { ErrorComponent } from './error/error.component';
 import { RolepageComponent } from './rolepage/rolepage.component';
 import { UserpageComponent } from './userpage/userpage.component';
+import { ProductpageComponent } from './productpage/productpage.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'role', component: RoleComponent},
   { path: 'rolepage/:id', component: RolepageComponent},
   { path: 'product', component: ProductComponent},
+  { path: 'productpage/:id', component: ProductpageComponent},
   { path: 'expense', component: ExpenseComponent},
   { path: 'customer', component: CustomerComponent}
   // { path: '**', component: ErrorComponent}

@@ -6,11 +6,9 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import org.gl.com.entity.Login;
-import org.gl.com.entity.Role;
+import org.gl.com.entity.Login; 
 import org.gl.com.entity.exception.ResourceNotFoundException;
-import org.gl.com.repository.LoginRepository;
-import org.gl.com.repository.RoleRepository;
+import org.gl.com.repository.LoginRepository; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,7 +40,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/save-Login")
-	public ResponseEntity<Void> createRole(@RequestBody Login login){
+	public ResponseEntity<Void> createLogin(@RequestBody Login login){
 		Login loginCreated = loginRepository.save(login);
 		URI uri=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(loginCreated.getId()).toUri();
 		return ResponseEntity.created(uri).build();
@@ -53,7 +51,7 @@ public class LoginController {
 		return loginRepository.findById(id).map(loginLocal -> {
 			loginLocal.setLoginDate(login.getLoginDate());
 			loginLocal.setUser(login.getUser());
-			loginLocal.setModified_By(login.getModified_By()); //NEED TO SET CURRENT USER
+			loginLocal.setUpdatedBy(login.getUpdatedBy()); //NEED TO SET CURRENT USER
 			loginLocal.setUpdatedAt(login.getUpdatedAt());  //NEED TO SET CURRENT TIME
 			return loginRepository.save(loginLocal);
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + id + " not found"));
